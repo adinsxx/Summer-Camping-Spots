@@ -1,3 +1,4 @@
+//Variables
 var map;
 var markers = [];
 var polygon = null;
