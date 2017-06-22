@@ -1,287 +1,16 @@
-//Variables
+//Model
+
+//View
+
+//ViewModel
 var map;
 var markers = [];
 var polygon = null;
 var placeMarkers = [];
 function initMap() {
-  var styles = [
-{
-    "featureType": "water",
-    "elementType": "labels.text",
-    "stylers": [
-        {
-            "visibility": "off"
-        }
-    ]
-},
-{
-    "featureType": "water",
-    "elementType": "geometry.fill",
-    "stylers": [
-        {
-            "visibility": "on"
-        },
-        {
-            "color": "#a36634"
-        }
-    ]
-},
-{
-    "featureType": "poi.park",
-    "elementType": "all",
-    "stylers": [
-        {
-            "visibility": "off"
-        }
-    ]
-},
-{
-    "featureType": "landscape.natural",
-    "elementType": "geometry.fill",
-    "stylers": [
-        {
-            "visibility": "on"
-        },
-        {
-            "color": "#034436"
-        }
-    ]
-},
-{
-    "featureType": "landscape.man_made",
-    "elementType": "geometry.fill",
-    "stylers": [
-        {
-            "color": "#025241"
-        }
-    ]
-},
-{
-    "featureType": "poi",
-    "elementType": "all",
-    "stylers": [
-        {
-            "visibility": "off"
-        }
-    ]
-},
-{
-    "featureType": "road.arterial",
-    "elementType": "labels",
-    "stylers": [
-        {
-            "visibility": "off"
-        }
-    ]
-},
-{
-    "featureType": "road.arterial",
-    "elementType": "geometry",
-    "stylers": [
-        {
-            "color": "#07382d"
-        }
-    ]
-},
-{
-    "featureType": "transit",
-    "elementType": "all",
-    "stylers": [
-        {
-            "visibility": "off"
-        }
-    ]
-},
-{
-    "featureType": "road.highway",
-    "elementType": "labels.text",
-    "stylers": [
-        {
-            "visibility": "off"
-        }
-    ]
-},
-{
-    "featureType": "road.local",
-    "elementType": "all",
-    "stylers": [
-        {
-            "visibility": "off"
-        }
-    ]
-},
-{
-    "featureType": "road.highway",
-    "elementType": "geometry.stroke",
-    "stylers": [
-        {
-            "color": "#034436"
-        },
-        {
-            "weight": 4.63
-        }
-    ]
-},
-{
-    "featureType": "administrative.neighborhood",
-    "elementType": "all",
-    "stylers": [
-        {
-            "visibility": "off"
-        }
-    ]
-},
-{
-    "featureType": "administrative.locality",
-    "elementType": "labels.text.stroke",
-    "stylers": [
-        {
-            "color": "#034436"
-        }
-    ]
-},
-{
-    "featureType": "administrative.locality",
-    "elementType": "labels.text.fill",
-    "stylers": [
-        {
-            "color": "#a6ce39"
-        }
-    ]
-},
-{
-    "featureType": "road.highway",
-    "elementType": "geometry.fill",
-    "stylers": [
-        {
-            "color": "#2db56e"
-        }
-    ]
-},
-{
-    "featureType": "road.highway",
-    "elementType": "labels.icon",
-    "stylers": [
-        {
-            "visibility": "off"
-        }
-    ]
-},
-{
-    "featureType": "transit.station.airport",
-    "elementType": "geometry",
-    "stylers": [
-        {
-            "visibility": "on"
-        },
-        {
-            "color": "#d19c3a"
-        }
-    ]
-},
-{
-    "featureType": "administrative.province",
-    "elementType": "labels.text.stroke",
-    "stylers": [
-        {
-            "color": "#034436"
-        },
-        {
-            "weight": 4.73
-        }
-    ]
-},
-{
-    "featureType": "administrative.province",
-    "elementType": "labels.text.fill",
-    "stylers": [
-        {
-            "color": "#f58220"
-        }
-    ]
-},
-{
-    "featureType": "administrative.province",
-    "elementType": "geometry.stroke",
-    "stylers": [
-        {
-            "visibility": "on"
-        },
-        {
-            "color": "#febe3f"
-        },
-        {
-            "weight": 1.55
-        }
-    ]
-},
-{
-    "featureType": "administrative",
-    "elementType": "geometry.fill",
-    "stylers": [
-        {
-            "color": "#0c4d3f"
-        }
-    ]
-},
-{
-    "featureType": "administrative.country",
-    "elementType": "labels.text.stroke",
-    "stylers": [
-        {
-            "visibility": "off"
-        },
-        {
-            "color": "#034436"
-        },
-        {
-            "weight": 6.32
-        }
-    ]
-},
-{
-    "featureType": "administrative.country",
-    "elementType": "geometry.stroke",
-    "stylers": [
-        {
-            "color": "#a6ce39"
-        }
-    ]
-},
-{
-    "featureType": "administrative.country",
-    "elementType": "labels.text.fill",
-    "stylers": [
-        {
-            "color": "#f2f2f2"
-        }
-    ]
-},
-{
-    "featureType": "landscape.natural",
-    "elementType": "labels.text.stroke",
-    "stylers": [
-        {
-            "color": "#034436"
-        }
-    ]
-},
-{
-    "featureType": "landscape.natural",
-    "elementType": "labels.text.fill",
-    "stylers": [
-        {
-            "color": "#f2f2f2"
-        }
-    ]
-}
-  ];
-
-
     map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 43.78444, lng: -88.787868 },
       zoom: 8,
-      styles: styles,
       mapTypeControl: false
     });
 
@@ -338,9 +67,10 @@ function initMap() {
       marker.addListener('click');
     }
     document.getElementById('show-campsites').addEventListener('click', showCampsites);
-    document.getElementById('hide-campsites').addEventListener('click', function(){
-      hideMarkers(markers);
-    });
+    document.getElementById('hide-campsites').addEventListener('click', hideCampsites);
+      //function(){
+      //hideMarkers(markers);
+    //}
     document.getElementById('toggle-drawing').addEventListener('click', function() {
       toggleDrawing(drawingManager);
     });
@@ -472,7 +202,7 @@ function zoomToArea() {
   } else {
     geocoder.geocode(
       { address: address,
-        componentRestrictions: {locality: 'New York'}
+        componentRestrictions: {locality: 'Wisconsin'}
       }, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
           map.setCenter(results[0].geometry.location);
