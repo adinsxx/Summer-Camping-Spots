@@ -3,11 +3,10 @@
 <head>
 	<title>Camp Site Finder</title>
 	<script async defer src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry,&key=AIzaSyB4-_mt8jIlFVSNiCwS49otSFui_ty44Zs&v=3&callback=initMap"></script>
-  <!-- <script async defer src="http://api.nytimes.com/svc/search/v2/articlesearch.json?q=&sort=newest&api-key=811c11907c2f4cc0b1badc65bd16229f"></script> -->
 	<script type="text/javascript" src="js/jquery-3.2.1.min/index.js"></script> 
 	<script type="text/javascript" src="js/knockout/dist/knockout.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
-	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="container">
@@ -27,6 +26,9 @@
           <span class="text">Search for nearby places</span>
           <input id="places-search" type="text" placeholder="Ex: Pizza delivery in NYC">
           <input id="go-places" type="button" value="Go">
+        <div class="nytimes-container">
+          <h3 id="nytimes-header">Local News</h3>
+          <ul id="nytimes-articles" class="article-list">What's going on near you?</ul>
         </div>
       </div>
       <div id="map"></div>

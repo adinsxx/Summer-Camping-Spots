@@ -23,23 +23,24 @@ html, body {
 
 .container {
   height: 100%;
-  position: relative;
+  position: ;
+  padding: 0px 0px 0px 0px;
 }
 
 input {
-  font-size: 12px;
+  font-size: 6px;
 }
 
 h1 {
   color: #525454;
-  font-size: 22px;
+  font-size: 8px;
   margin: 0 0 10px 0;
   text-align: center;
 }
 
 #hide-campsites,
 #show-campsites {
-  width: 48%;
+  width: 20%;
 }
 
 hr {
@@ -52,7 +53,7 @@ hr {
 #map {
   bottom:0px;
   height: 100%;
-  left: 356px;
+  left: 355px;
   position: absolute;
   right: 0px;
 }
@@ -60,12 +61,12 @@ hr {
 .options-box {
   background: #fff;
   border: 1px solid #999;
-  border-radius: 3px;
+  border-radius: 0px;
   height: 100%;
   line-height: 35px;
-  padding: 10px 10px 30px 10px;
+  padding: 0px 0px 0px 0px;
   text-align: left;
-  width: 340px;
+  width: 200px;
 }
 
 #pano {
@@ -75,7 +76,7 @@ hr {
 
 #places-search,
 #search-within-time-text {
-  width: 84%;
+  width: 24%;
 }
 
 .text {
@@ -1664,8 +1665,8 @@ pre code {
   overflow-y: scroll;
 }
 .container {
-  margin-right: auto;
-  margin-left: auto;
+  margin-right:;
+  margin-left:;
   padding-left: 15px;
   padding-right: 15px;
 }
